@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index{% endblock %}
+
+{% block body %}
+<div class="mx-auto container">
+    <a class="inline-block rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:text-indigo-500"
+    href="{{ path('app_article_new') }}">
+    Create new
+</a>
+<div class="grid grid-cols-3 gap-6 mt-10">
+
+    {% for article in articles %}
+
+    <article class="w-full rounded-xl bg-cyan-400 p-0.5 shadow-xl transition hover:bg-cyan-600 ">
+        <div>
+            <div class="rounded-[10px] bg-white p-5 !pt-4">
+                <time datetime="2022-10-10" class="block text-xs text-gray-500">{{ article.dateCreation ?
+                    article.dateCreation|date('Y-m-d H:i:s') : '' }} </time>
+                
+                    <h3 class="mt-0.5 text-lg font-medium text-gray-900">
+                        {{ article.titre }}
+                    </h3>
+                    <p class="text-sm line-clamp-3">
+                        {{ article.description }}
+                    </p>
+                    <p class="block text-xs text-gray-500 mt-2">{{article.user.name}}</p>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-1 pb-4 pl-4">
+                <a href="{{path('app_article_show',{id:article.id})}}"
+                class="whitespace-nowrap rounded-lg bg-green-200 px-2.5 text-xs text-green-800 mr-3 pt-2 pb-2 hover:scale-110">
+                 Voir plus ->
+            </a>
+            <a href="{{path('app_article_edit',{id:article.id})}}"
+            class="whitespace-nowrap rounded-lg bg-green-200 px-2.5 py-0.5 text-xs text-green-800 pt-2 pb-2 hover:scale-110 mr-3">
+            Modifier
+        </a>
+        {{ include('article/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+    
+</div>
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

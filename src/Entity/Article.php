@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -30,6 +31,12 @@ class Article
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+
+    public function __construct()
+    {
+        $this->dateCreation = new DateTime();
+    }
+    
     public function getId(): ?int
     {
         return $this->id;
