@@ -3,18 +3,15 @@
 {% block title %}Article index{% endblock %}
 
 {% block body %}
-<div class="mx-auto container">
-   
-<a href="{{ path('app_article_new') }}" class="rounded-md bg-cyan-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Créer un article</a>
 
-<div class="grid grid-cols-3 gap-6 mt-10">
+<div class="mx-auto container grid grid-cols-3 gap-6 mt-10  ">
 
     {% for article in articles %}
 
     <article class="w-full rounded-xl bg-cyan-400 p-0.5 shadow-xl transition hover:bg-cyan-600 ">
         <div>
             <div class="rounded-[10px] bg-white p-5 !pt-4">
-                <time datetime="2022-10-10" class="block text-xs text-gray-500">Créé le : {{ article.dateCreation ?
+                <time datetime="2022-10-10" class="block text-xs text-gray-500">Crée le :{{ article.dateCreation ?
                     article.dateCreation|date('Y-m-d') : '' }} </time>
                 
                     <h3 class="mt-0.5 text-lg font-medium text-gray-900">
@@ -30,11 +27,7 @@
                 class="whitespace-nowrap rounded-lg bg-green-200 px-2.5 text-xs text-green-800 mr-3 pt-2 pb-2 hover:scale-110">
                  Voir plus ->
             </a>
-            <a href="{{path('app_article_edit',{id:article.id})}}"
-            class="whitespace-nowrap rounded-lg bg-green-200 px-2.5 py-0.5 text-xs text-green-800 pt-2 pb-2 hover:scale-110 mr-3">
-            Modifier
-        </a>
-        {{ include('article/_delete_form.html.twig') }}
+            
             </div>
         </div>
     </article>
@@ -43,50 +36,7 @@
 </div>
 
 
-</div>
 
 
 {% endblock %}
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

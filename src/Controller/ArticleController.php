@@ -89,16 +89,15 @@ final class ArticleController extends AbstractController
         return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
     }
 
+    #[Route('/article/tous', name: 'app_article_tous', methods: ['GET'])]
+public function afficherTous(ArticleRepository $articleRepository): Response
+{
 
-    // #[Route('/article/tous', name: 'app_article_delete')]
-    // public function delete(Request $request, Article $article, EntityManagerInterface $entityManager): Response
-    // {
-    //     if ($article->getUser() === $this->getUser()) {
-        
-    //         $entityManager->remove($article);
-    //         $entityManager->flush();
-        
-    // }
-    //     return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
-    // }
+    $articles = $articleRepository->findAll();
+
+    return $this->render('article/tous.html.twig', [
+        'articles' => $articles,
+    ]);
+}
+
 }
